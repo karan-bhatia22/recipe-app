@@ -1,5 +1,5 @@
-FROM --platform=arm64 node:16
+FROM --platform=arm64 node:16-alpine
 WORKDIR /home/node/image-upload
 COPY . /home/node/image-upload/
-RUN npm install
-CMD npm run dev
+RUN npm install --production
+CMD node dist/index.js
