@@ -1,0 +1,50 @@
+version: '3'
+services:
+  load_balancer:
+    image: haproxy
+    ports:
+      - "1111:1111"
+    volumes:
+      - ./haproxy:/usr/local/etc/haproxy
+  recipes-service1:
+    image: recipes-service
+    environment:
+      - PORT=8080
+  recipes-service2:
+    image: recipes-service
+    environment:
+      - PORT=8081
+  recipes-service3:
+    image: recipes-service
+    environment:
+      - PORT=8082
+  recipes-service4:
+    image: recipes-service
+    environment:
+      - PORT=8083
+  comments-service1:
+    image: comments-service
+    environment:
+      - PORT=9900
+  comments-service2:
+    image: comments-service
+    environment:
+      - PORT=9901
+  comments-service3:
+    image: comments-service
+    environment:
+      - PORT=9902
+  image-upload-service1:
+    image: image-upload-service
+    environment:
+      - PORT=9080
+  image-upload-service2:
+    image: image-upload-service
+    environment:
+      - PORT=9081
+  image-upload-service3:
+    image: image-upload-service
+    environment:
+      - PORT=9082
+  
+
